@@ -1,0 +1,139 @@
+# Luma — feature & fix list
+# Work through items one by one. Add new points below as needed.
+# Do NOT start these until user says which one to build.
+
+================================================================================
+NEW FEATURE BACKLOG (queued — not started)
+================================================================================
+
+F1. Group chats
+    - Create group from frontend
+    - Group name / avatar edit
+    - Add / remove members
+
+F3. Voice messages
+    - Tap-and-hold (or record button) to send audio
+    - Playback in chat bubbles
+
+F4. Message reactions
+    - Emoji react on bubbles
+    - Live update reactions for everyone in the chat
+
+F5. Reply / quote
+    - Reply to a specific message
+    - Show quoted preview in the bubble
+
+F6. Profile avatar upload
+    - Cloudinary avatar upload on Profile page
+
+F7. Block / report
+    - Block user (no DM / calls / visibility as needed)
+    - Report user flow
+
+F8. Unfriend
+    - Remove friendship
+    - Re-apply messaging rules after unfriend (private accounts)
+
+F9. Mute chat
+    - Mute / unmute a thread
+    - Suppress notifications / noise for muted chats
+
+F10. Audio-only calls
+    - Start voice call without video
+
+F11. Missed call history
+    - Show missed / past calls in chat
+
+F12. Screen share
+    - Share screen during calls (later / harder)
+
+F14. Disappearing messages
+    - Optional timer on messages
+
+F15. Pin chats
+    - Pin important threads to top of chat list
+
+F16. Link previews
+    - Preview when someone pastes a URL
+
+F17. Theme toggle
+    - Liquid glass light (default) + optional night / dark glass mode
+
+F19. Push notifications
+    - New message / incoming call when tab isn’t focused
+
+F20. Message search
+    - Search old messages / chats quickly
+
+--------------------------------------------------------------------------------
+DEFERRED (do later — needs setup)
+--------------------------------------------------------------------------------
+
+F18. Real MongoDB / Atlas
+    - [LOCAL DONE] Atlas URI wired in backend/.env, USE_MEMORY_DB=false
+    - Still needed for deploy: set MONGO_URI on host + Atlas Network Access (0.0.0.0/0)
+    - After go-live: rotate password (credentials were shared in chat)
+
+================================================================================
+OTHER OPEN ITEMS
+================================================================================
+
+S1. Settings page (general)
+    - Notifications preferences
+    - Logout / delete account
+
+S2. Call improvements (general polish)
+    - Enforce call only when messaging is allowed
+    - Better connecting / failed states
+
+S3. Auth / session
+    - Persist login cleanly across refresh
+    - Handle expired token (redirect to login)
+
+S4. Mobile chat UX
+    - Back button / sidebar ↔ thread switching polish
+
+S5. Empty / loading / error states
+    - Friendlier UI when API fails or socket disconnects
+
+S6. Onboarding
+    - First-login prompt to set avatar + privacy + hide preference
+
+S7. Online / last seen privacy
+    - Respect privacy setting (hide last seen if private)
+
+S8. Read receipts
+    - Show seen status in UI
+
+S9. Typing indicator polish
+    - Show who is typing in groups
+
+S10. Backend port conflicts
+    - Keep single backend instance on 5050
+    - Prefer one `npm run dev` only (kill-port helper exists)
+
+================================================================================
+USER NOTES (add more points below)
+================================================================================
+
+- Queued from ideas list: 1,3,4,5,6,7,8,9,10,11,12,14,15,16,17,19,20
+- Skip for now / later: 2 (stories), 13 (read receipts already in S8), 18 (DB setup by user)
+- Do not implement backlog until user picks the next item
+
+-
+-
+-
+
+================================================================================
+DONE
+================================================================================
+
+1. Profile page — edit name/bio + public/private + hide/unhide
+2. Public profile view — /users/:id with message/request actions
+3. Messaging rules — public free DM; private needs accepted friend request
+4. Friend requests — send / accept / reject + Requests page
+5. All accounts (People) page — excludes hidden; search still finds hidden
+6. Profile settings privacy toggles (same as #1)
+11. LIVE CHAT — broadcast to chat room + each user room; frontend ref + reconnect join
+14. Search includes hidden; discover excludes hidden
+9. Media in chat — device image picker, Cloudinary upload, bubble preview
