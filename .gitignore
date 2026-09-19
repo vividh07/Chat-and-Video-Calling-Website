@@ -30,3 +30,7 @@ Thumbs.db
 # IDE files
 .vscode/
 .idea/
+
+# Local planning / notes (not for GitHub)
+TODO.txt
+RENDER_DEPLOY.txt
