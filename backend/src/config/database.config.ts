@@ -5,10 +5,12 @@ const connectDatabse = async () => {
   try {
     let uri = Env.MONGO_URI;
 
+    // Local-only optional memory DB (package is a devDependency; skipped on Render)
     if (Env.USE_MEMORY_DB === "true") {
-      const { MongoMemoryServer } = await import("mongodb-memory-server");
-      const memoryServer = await MongoMemoryServer.create();
-      uri = memoryServer.getUri("chat-video-app");
+      const moduleName = "mongodb-memory-server";
+      const memory = await import(moduleName);
+      const memoryServer = await memory.MongoMemoryServer.create();
+      uri = memoryServer.getUri("luma");
       console.log("Using in-memory MongoDB for development");
     }
 
